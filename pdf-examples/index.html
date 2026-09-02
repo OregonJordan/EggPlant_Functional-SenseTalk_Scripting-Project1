@@ -36,10 +36,31 @@
 <body>
 
   <h2>PDF Examples</h2>
+  <div id="pdf-list"></div>
 
-  <a class="pdf-button" href="All%20Script.pdf" target="_blank">
-    View “All Script.pdf”
-  </a>
+  <script>
+    // List all PDF files manually here
+    // GitHub Pages cannot auto-read directories, so we define the list:
+    const pdfFiles = [
+      "All Script.pdf",
+      // Add more PDFs here as you upload them:
+      // "Example2.pdf",
+      // "AnotherScript.pdf"
+    ];
+
+    const container = document.getElementById("pdf-list");
+
+    pdfFiles.forEach(file => {
+      const encoded = encodeURIComponent(file);
+      const link = document.createElement("a");
+      link.href = encoded;
+      link.textContent = file;
+      link.className = "pdf-button";
+      link.target = "_blank";
+      container.appendChild(link);
+    });
+  </script>
 
 </body>
 </html>
+
